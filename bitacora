@@ -1,0 +1,23 @@
+para modificar y subir cambios a github 
+git commit -am "Modificaciones en los modulos"
+luego de los cambios se realiza un 
+git push o a veces toca poder git push origin master
+existen archivos que no estuvieron en la captura original 
+por lo que se debe hacer lo siguiente 
+
+git add .
+git status 
+
+git commit -m "Agregamos y Modificaciones modulos"
+git push para subir los cambios 
+
+Debemos o necesitamos crear un tag 
+para esto se tiene que realizar la siguiente sentencia 
+
+git tag -a v1.0.0 -m "Version 1 lista para produccion"
+git tag para ver las versiones
+
+git push --tags
+
+
+

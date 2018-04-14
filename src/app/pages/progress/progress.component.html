@@ -1,3 +1,50 @@
-<p>
-  progress works!
-</p>
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Barra de progreso</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValueNow]="porcentajeAzul" aria-valuemin="0" aria-valuemax="100" [style.width]="porcentajeAzul + '%'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Barra de progreso</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [attr.ariaValueNow]="porcentajeVerde" aria-valuemin="0" aria-valuemax="100" [style.width]="porcentajeVerde + '%'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+
+                <!-- se remplaza por el incrementador -->
+                <!-- si ponemos [leyenda]="leyenda" angular pide que "leyenda" sea una variable pero no lo es si 
+                se necesita enviar solo la palabra leyenda pues se lo pondria asi leyenda="leyenda" 
+                ojo sin llaves -->
+
+                <!-- para los outputs siempre se tiene que envicar el event actualizarValorProgress( $event ) -->
+                <!-- otra de las menera para realizar esto es (cambiaValor)="progressAzul =  $event" -->
+                <app-incrementador (cambiaValor)="porcentajeAzul =  $event" leyenda="Progress azul" [porcentaje]="porcentajeAzul"></app-incrementador>
+
+                <!-- fin del componente incrementador -->
+
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <app-incrementador (cambiaValor)="porcentajeVerde =  $event" leyenda="Progress verde" [porcentaje]="porcentajeVerde"></app-incrementador>
+            </div>
+        </div>
+    </div>
+</div>

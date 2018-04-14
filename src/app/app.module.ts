@@ -13,6 +13,9 @@ import { PagesModules } from './pages/pages.modules';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
+// import { IncrementadorComponent } from './components/incrementador/incrementador.component';
+import { FormsModule } from '@angular/forms';
+// import { GraficoDonaComponent } from './components/grafico-dona/grafico-dona.component';
 
 
 
@@ -21,11 +24,14 @@ import { RegisterComponent } from './login/register.component';
     AppComponent,
     LoginComponent,
     RegisterComponent
+    
+   // IncrementadorComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTES,
-    PagesModules
+    PagesModules, 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
