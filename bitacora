@@ -5,6 +5,7 @@ git push o a veces toca poder git push origin master
 existen archivos que no estuvieron en la captura original 
 por lo que se debe hacer lo siguiente 
 
+agregar todo muy rapido luego de hacer esto le hacemos otra ves el git status y se vera en verde 
 git add .
 git status 
 
@@ -19,5 +20,32 @@ git tag para ver las versiones
 
 git push --tags
 
+git push origin master
+
+crear un nuevo release 
+git tag -a v1.1.0 -m "Version 1.1 lista para produccion"
+
+para revisar las versiones 
+git tag
+para subir el relear a git hub
+git push --tags
+
+ANGULAR
+para crear una nueva aplicacion 
+ng new nombreAplicacion 
+para crear una aplicacion con un archivo de ruteo 
+
+para levantar el servidor 
+ng serve -o 
+para levantar el servidor en otro puerto que no sea el 4200 
+ng serve --port 4201
 
 
+para crear un componente con un diferente modulo que el app.module.tags
+ng g c pages/accountSettings -m="pages/pages.module.ts" --spec=false -is
+
+para crear un servicio en una ruta especifica y que se importe directamente en el modulo 
+ng g s services/settings -m="app.module.ts" --spec=false
+
+para crear un modulo de servicios 
+  ng g m  services/settings --spec=false --flat

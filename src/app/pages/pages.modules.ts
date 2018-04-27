@@ -10,9 +10,12 @@ import { PAGES_ROUTES } from './pages.routes';
 import { FormsModule } from '@angular/forms';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 
+
+
 // libreria de graficas
 import { ChartsModule } from 'ng2-charts';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 // Routes
 
@@ -24,7 +27,8 @@ import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.co
         Graficas1Component,
         PagesComponent,
         IncrementadorComponent, // este posiblemente luego lo vamos a retirar de aqui
-        GraficoDonaComponent
+        GraficoDonaComponent,
+        AccountSettingsComponent
     ],
     imports: [ SharedModule, PAGES_ROUTES, FormsModule, ChartsModule, BrowserModule],
     exports: [ DasboardComponent,

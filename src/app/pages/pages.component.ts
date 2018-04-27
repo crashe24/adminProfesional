@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// con esto se puede llamar cualquier script que se eneucntra fuera del angular en un archivo javascript
 
+declare function init_pluggins();
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+
+    init_pluggins();
+  }
 
   ngOnInit() {
   }
