@@ -43,9 +43,73 @@ ng serve --port 4201
 
 para crear un componente con un diferente modulo que el app.module.tags
 ng g c pages/accountSettings -m="pages/pages.module.ts" --spec=false -is
+ng g c pages/rjxs -m="pages/pages.modules.ts"  --spec=false -is
 
 para crear un servicio en una ruta especifica y que se importe directamente en el modulo 
 ng g s services/settings -m="app.module.ts" --spec=false
 
 para crear un modulo de servicios 
   ng g m  services/settings --spec=false --flat
+
+promesas 
+Sirven para hacer una tarea asincrona trabajo que uno se quiera hacer en otra linea del tiempo 
+
+observables
+recibe un observer
+cuando esta en accion el observer no importa q se cambie de pagina, siempre esta funcionando 
+Para terminar la ejecucion 
+clearInterval(contador);
+                  observer.complete();
+
+los subcribe pueden tener 3 callback
+1 cuando recibes informacion se recibe un next cuando se recibe algo en un string de datos
+obs.subscribe( numero => {
+        console.log( 'subs', numero);
+    });
+
+2. el siguiente es un error 
+
+obs.subscribe( numero => {
+        console.log( 'subs', numero);
+        
+    }, 
+    error => { 
+      console.log( 'Error en el obs' , error ); 
+    });
+
+   }
+
+3 otro que no recibe nada y es cuando el observador termino    
+
+
+RETRY 
+Retry este es un metodo primero tenemos que importarlo de 
+import 'rxjs/add/operator/retry';
+
+sirve para cuando un observador de un error se pueda tratar o intentar nuevamente solicitar que el observador se ejecute
+
+MAP
+se tiene que importar 
+import 'rxjs/add/operator/map';
+Tiene que el observer estar subcrito si no nunca se ejecutaria 
+Sirve para cuando se tiene objetos muy grandes y a nosotros nos interesa un valor en especial puede ser number boolean string etc.
+
+FILTER 
+import 'rxjs/add/operator/filter';
+Se debe poner despues del map porque ahi se tiene la respuesta del valor ya procesado
+
+}).retry(1)
+    .map ( (resp: any) => { // el operador map jamas se va a ejecutar si el observador no esta suscrito
+          return resp.valor ;
+    }).filter( (valor, index) => {
+      console.log('Filter :', valor, index);
+      if ( (valor % 2 ) === 1 ) {
+        // valor impar
+        return true;
+      } else {
+        // valor par
+        return false;
+      }
+     
+    }) ; 
+

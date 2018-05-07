@@ -16,6 +16,8 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
 import { ChartsModule } from 'ng2-charts';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RjxsComponent } from './rjxs/rjxs.component';
 
 // Routes
 
@@ -28,7 +30,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
         PagesComponent,
         IncrementadorComponent, // este posiblemente luego lo vamos a retirar de aqui
         GraficoDonaComponent,
-        AccountSettingsComponent
+        AccountSettingsComponent,
+        PromesasComponent,
+        RjxsComponent
     ],
     imports: [ SharedModule, PAGES_ROUTES, FormsModule, ChartsModule, BrowserModule],
     exports: [ DasboardComponent,
