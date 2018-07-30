@@ -6,6 +6,7 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RjxsComponent } from './rjxs/rjxs.component';
+import { LoginGuardGuard } from '../services/services.index';
 
 // el parametro data sirve para enviar un objeto como parametro esto puede ser muy util 
 // para crear el camino de migas de pan 
@@ -13,6 +14,7 @@ import { RjxsComponent } from './rjxs/rjxs.component';
 const pagesRoutes: Routes = [
     {   path: '',
     component: PagesComponent,
+    canActivate: [LoginGuardGuard],
     children: [
         { path: 'dasboard', component: DasboardComponent, data: { titulo: 'DasBoard' } },
         { path: 'progress', component: ProgressComponent, data: { titulo: 'Progress' }  },
