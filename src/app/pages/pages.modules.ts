@@ -11,6 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 
 
+// importacion del modulo de pipes 
+import { PipesModule } from '../pipes/pipes.module';
+
+
 
 // libreria de graficas
 import { ChartsModule } from 'ng2-charts';
@@ -18,6 +22,8 @@ import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.co
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RjxsComponent } from './rjxs/rjxs.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CommonModule } from '@angular/common';
 
 // Routes
 
@@ -32,9 +38,11 @@ import { RjxsComponent } from './rjxs/rjxs.component';
         GraficoDonaComponent,
         AccountSettingsComponent,
         PromesasComponent,
-        RjxsComponent
+        RjxsComponent,
+        ProfileComponent
     ],
-    imports: [ SharedModule, PAGES_ROUTES, FormsModule, ChartsModule, BrowserModule],
+    imports: [ SharedModule, PAGES_ROUTES, FormsModule, ChartsModule, BrowserModule,
+            PipesModule, CommonModule],
     exports: [ DasboardComponent,
               ProgressComponent,
               Graficas1Component

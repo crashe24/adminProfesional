@@ -7,6 +7,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RjxsComponent } from './rjxs/rjxs.component';
 import { LoginGuardGuard } from '../services/services.index';
+import { ProfileComponent } from './profile/profile.component';
 
 // el parametro data sirve para enviar un objeto como parametro esto puede ser muy util 
 // para crear el camino de migas de pan 
@@ -22,6 +23,7 @@ const pagesRoutes: Routes = [
         { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas' }  },
         { path: 'observables', component: RjxsComponent, data: { titulo: 'Observables' }  },
         { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Configuracion de tema' }  },
+        { path: 'perfil', component: ProfileComponent, data: {titulo: 'Perfil de Usuario' }},
         { path: '', redirectTo: '/dasboard', pathMatch: 'full' }
     ] }
 ];
