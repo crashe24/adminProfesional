@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// con esto se puede llamar cualquier script que se eneucntra fuera del angular en un archivo javascript
+// con esto se puede llamar cualquier 
+// script que se eneucntra fuera del angular en un archivo javascript
 
 declare function init_pluggins();
 @Component({

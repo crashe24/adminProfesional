@@ -105,15 +105,20 @@ export class UsuarioService {
         this.router.navigate(['/login']);
   }
 
+// actualizar el usuario el rol 
   actualizarUsuario(usuario: Usuario) { 
         let  url = URL_SERVICIOS + '/usuario/' + usuario._id;
         url += '?token=' + this.token;
-        console.log(url);
-
+        
         return this.http.put( url, usuario)
         .map( (resp: any ) => { 
-                 this.guardandoUsuarioLocalStorage(resp.usuario._id, 
-                  this.token, resp.usuario);
+
+            if ( usuario._id === this.usuario._id) { 
+                  
+                  this.guardandoUsuarioLocalStorage(resp.usuario._id, 
+                   this.token, resp.usuario);
+
+                  }
 
                   swal('Usuario actualizado', usuario.nombre, 'success');
                   return true;
@@ -136,4 +141,35 @@ export class UsuarioService {
                   console.log(resp);      
             });
   }
+
+  // funcion para cargar usuario
+  // si necesitariamos transformar la data utilizamos el map
+  cargarUsuarios( desde: number = 0 ) {
+            const url = URL_SERVICIOS + '/usuario?desde=' + desde;
+            return this.http.get(url);
+
+  }
+
+  buscarUsuarios ( termino: string) {
+        const url = URL_SERVICIOS + '/busqueda/coleccion/usuario/' + termino;
+        // vamos a filtrar para que solo nos envie los usuarios para eso se tiene que hacer un map
+        return this.http.get( url )
+        .map( (resp: any) => {
+            console.log(resp);
+            return resp.usuario;
+        });
+  }
+  // borrar usuarios 
+  borrarUsuario ( usuarioABorrar: Usuario) {
+        console.log('this.token :', this.token);
+        const url = URL_SERVICIOS + '/usuario/' + usuarioABorrar._id + '?token=' + this.token;
+        console.log('object :', url);
+        return this.http.delete( url )
+        .map(resp => {
+            swal('Usuario borrado', 'El usuario ha sido borrado', 'success');
+            return true;
+        });
+  }
+  
+ 
 }

@@ -21,7 +21,7 @@ export class BreadcrumsComponent implements OnInit {
               ) { 
    
     this.obtenerData().subscribe( (data) => {
-      console.log(data);
+     // console.log(data);
       this.label = data.titulo;
       this._title.setTitle(this.label);
       const metaTag: MetaDefinition = { 
