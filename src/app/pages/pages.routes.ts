@@ -9,6 +9,10 @@ import { RjxsComponent } from './rjxs/rjxs.component';
 import { LoginGuardGuard } from '../services/services.index';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { HospitalesComponent } from './hospitales/hospitales.component';
+import { MedicosComponent } from './medicos/medicos.component';
+import { MedicoComponent } from './medicos/medico.component';
+
 
 // el parametro data sirve para enviar un objeto como parametro esto puede ser muy util 
 // para crear el camino de migas de pan 
@@ -27,6 +31,9 @@ const pagesRoutes: Routes = [
         { path: 'perfil', component: ProfileComponent, data: {titulo: 'Perfil de Usuario' }},
         // Mantenimietos
         { path: 'usuarios', component: UsuariosComponent, data: {titulo: 'Mantenimiento de usuarios' }},
+        { path: 'hospitales', component: HospitalesComponent, data: {titulo: 'Mantenimiento de hospitales' }},
+        { path: 'medicos', component: MedicosComponent, data: {titulo: 'Mantenimiento de medicos' }},
+        { path: 'medico/:id', component: MedicoComponent, data: {titulo: 'Actualizar Medico' }},
         { path: '', redirectTo: '/dasboard', pathMatch: 'full' }
     ] }
 ];
