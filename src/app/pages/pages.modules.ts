@@ -30,7 +30,8 @@ import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from '../pages/medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
 
-// Routes
+// busqueda 
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import { MedicoComponent } from './medicos/medico.component';
         RjxsComponent,
         ProfileComponent, 
         UsuariosComponent, 
-        ModalUploadComponent, HospitalesComponent, MedicosComponent, MedicoComponent
+        ModalUploadComponent, HospitalesComponent, MedicosComponent, MedicoComponent, BusquedaComponent
     ],
     imports: [ SharedModule, PAGES_ROUTES, FormsModule, ChartsModule, BrowserModule,
             PipesModule, CommonModule],
