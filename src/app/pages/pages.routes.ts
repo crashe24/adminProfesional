@@ -14,17 +14,25 @@ import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { AdminGuard } from '../services/services.index';
+import { VerificaTokenGuard } from '../services/guards/verifica-token.guard';
 
 
 // el parametro data sirve para enviar un objeto como parametro esto puede ser muy util 
 // para crear el camino de migas de pan 
 
-const pagesRoutes: Routes = [
-    {   path: '',
-    component: PagesComponent,
-    canActivate: [LoginGuardGuard],
-    children: [
-        { path: 'dasboard', component: DasboardComponent, data: { titulo: 'DasBoard' } },
+const pagesRoutes: Routes =
+//  [
+//     {   path: '',
+//     component: PagesComponent,
+//     canActivate: [LoginGuardGuard],
+//     children: 
+    [
+        // el verificaTokenGuard se necesita poner en todas las paginas que necesiten autenticacio
+        { path: 'dasboard', 
+          component: DasboardComponent, 
+          canActivate: [VerificaTokenGuard],
+          data: { titulo: 'DasBoard' } 
+        },
         { path: 'progress', component: ProgressComponent, data: { titulo: 'Progress' }  },
         { path: 'graficas', component: Graficas1Component, data: { titulo: 'Graficas' }  },
         { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas' }  },
@@ -42,7 +50,7 @@ const pagesRoutes: Routes = [
         { path: 'medicos', component: MedicosComponent, data: {titulo: 'Mantenimiento de medicos' }},
         { path: 'medico/:id', component: MedicoComponent, data: {titulo: 'Actualizar Medico' }},
         { path: '', redirectTo: '/dasboard', pathMatch: 'full' }
-    ] }
+   // ] }
 ];
 
 // exportar este modulo de rutas para que pueda ser incorporado en otro lugar

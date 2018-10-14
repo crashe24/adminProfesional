@@ -6,6 +6,9 @@ import { URL_SERVICIOS } from '../../config/config';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+// swal
+ import swal from 'sweetalert';
+
 import { Router } from '@angular/router';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 // tslint:disable-next-line:import-blacklist
@@ -37,6 +40,23 @@ export class UsuarioService {
             this.menu = menu;
       }
 
+     //
+     // Para renovar el token 
+     // A esta funcion se debe subcribir 
+     renuevaToken() {
+           const url = URL_SERVICIOS + 'login/renuevaToken?token' + this.token;
+           return this.http.get( url)
+           .map( (resp: any) => {
+                 this.token = resp.token;
+                 localStorage.setItem('token', this.token);
+                 return true; // se indica a lo que se subscriba que se ha cambiado el token correctamente
+           }) .catch ( err => {
+                 // se lo envia al login nuevamente
+                 this.logout();
+            swal('Error en la renovacion del token : ', 'no fue posible renovar token', 'error');
+              return Observable.throw( err );
+            });
+     }
   //
   // verificar si se encuentra logeado
   //
@@ -92,7 +112,7 @@ export class UsuarioService {
           }) // manejo de errores
           .catch ( err => {
                       console.log( err.error.mensaje);
-                      swal('Error en el login : ', err.error.mensaje, 'error');
+                     // swal('Error en el login : ', err.error.mensaje, 'error');
                         return Observable.throw( err );
           });
   }

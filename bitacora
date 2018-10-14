@@ -116,3 +116,28 @@ Se debe poner despues del map porque ahi se tiene la respuesta del valor ya proc
 SweetAlert 
 https://sweetalert.js.org/guides/
 https://github.com/t4t5/sweetalert
+
+
+PARA GENERAR LA APLICACION EN PRODUCCION 
+ ng build -prod -aot false
+
+ PARA PROBAR UNA APLICACION 
+ utilizamos el httpServer https://www.npmjs.com/package/http-server
+ nos dirigimos a la carpeta dist y hacemos http-server -objetos
+http://localhost:8080/#/login
+
+Posible error unexpected t ..
+en el index se tiene que realizar en el head el siguiente scirpt requierer o el rec
+<script>
+    window.req = window.dep = null;
+</script>
+
+Para subirlo en mi apache 
+se sube en la carpeta 
+ pisblemente de un error 
+ para tratar este error lo que se debe hacer es el index.html tieen la etiquta 
+ <base ref="/"> // se puede comentar o tambien se puede añadir la direccion de la ruta
+ el error se debe a que los archivos no se pueden encontrar si comentamos este tag 
+ utilizara el path relativo y con eso ya coje la ruta por que todos los archivos se encuentran en esa ruta
+
+ 

@@ -6,6 +6,8 @@ import { Usuario } from '../../models/usuario.model';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 import { UsuarioService } from '../usuario/usuario.service';
 
+ import swal from 'sweetalert';
+
 @Injectable()
 export class HospitalService {
 

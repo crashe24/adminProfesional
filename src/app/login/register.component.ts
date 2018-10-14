@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-// import swal from 'sweetalert';
-import * as _swal from 'sweetalert';
-import { SweetAlert } from 'sweetalert/typings/core';
+ // import * as _swal from 'sweetalert';
+ import swal from 'sweetalert';
+// import { SweetAlert } from 'sweetalert/typings/core';
 
 // Servicios 
 import { UsuarioService } from '../services/services.index';
@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
   
     if (!this.forma.value.condiciones) {
      // console.log(' Debe de seleccionar las condiciones ');
-     const swal: SweetAlert = _swal as any;
+    //  const swal: SweetAlert = _swal as any;
      swal('Importante!', 'Debe aceptar las condiciones!', 'warning');
      return;
     }
